@@ -30,7 +30,7 @@ export const NavigationProvider: React.FC<{ children: React.ReactNode }> = ({ ch
 
   const push = (screen: string, params?: any) => {
     const screenName = normalizeToScreen(screen);
-    console.log("Android push to", screenName, params);
+    console.log("RWC Android push to ", screenName, params);
     if (navigationRef.isReady()) {
       // push a new route on the native stack
       navigationRef.dispatch(StackActions.push(screen as never, params as never));
@@ -40,7 +40,7 @@ export const NavigationProvider: React.FC<{ children: React.ReactNode }> = ({ ch
   };
 
   const navigate = (screen: string, params?: any) => {
-    console.log("Android Navigating to", screen, params);
+    console.log("RWC Android Navigating to", screen, params);
     if (navigationRef.isReady()) {
       navigationRef.navigate(screen, params);
     } else {

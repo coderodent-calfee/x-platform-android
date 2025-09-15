@@ -5,6 +5,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import Index from './pages/index';
 import Guest from './pages/guest';
+import { NavigationProvider, navigationRef } from './providers/NavigationProvider';
 
 const Stack = createNativeStackNavigator();
 
@@ -24,11 +25,14 @@ export default function App() {
 
 
   return (
-    <NavigationContainer>
-      <Stack.Navigator initialRouteName="Index">
-        <Stack.Screen name="Index" component={Index} options={{ title: 'Home' }} />
-        <Stack.Screen name="Guest" component={Guest} options={{ title: 'Guest Page' }} />
-      </Stack.Navigator>
+    <NavigationContainer ref={navigationRef}>
+      <NavigationProvider>
+        <Stack.Navigator initialRouteName="Index">
+          <Stack.Screen name="Index" component={Index} options={{ title: 'Home' }} />
+          <Stack.Screen name="Guest" component={Guest} options={{ title: 'Guest Page' }} />
+        </Stack.Navigator>
+      </NavigationProvider>
     </NavigationContainer>
+
   );
 }
