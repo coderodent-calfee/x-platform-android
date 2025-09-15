@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, Button } from 'react-native';
 import MyText from '../web/components/Text';
-import { useAppNavigation } from "../providers/NavigationProvider";
+import { useAppNavigation } from "../web/providers/NavigationProvider.native";
 
 export default function Guest({ navigation }: any) {
   const {navigate} = useAppNavigation();
